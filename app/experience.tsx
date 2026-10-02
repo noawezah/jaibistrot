@@ -126,11 +126,10 @@ export default function Experience() {
           .to(scene.querySelector(".scene-night-content"), { opacity: 1, y: 0, duration: 0.32, ease: "none" }, 0.62);
       });
 
-      media.add("(min-width: 900px)", () => {
-        const section = momentsRef.current;
-        const track = trackRef.current;
-        const viewport = section?.querySelector<HTMLElement>(".moments-viewport");
-        if (!section || !track || !viewport) return;
+      const section = momentsRef.current;
+      const track = trackRef.current;
+      const viewport = section?.querySelector<HTMLElement>(".moments-viewport");
+      if (section && track && viewport) {
         const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
         gsap.to(track, {
           x: () => -distance(),
@@ -145,7 +144,7 @@ export default function Experience() {
             invalidateOnRefresh: true,
           },
         });
-      });
+      }
     }, root);
 
     const refresh = () => ScrollTrigger.refresh();
@@ -278,7 +277,7 @@ export default function Experience() {
           <h2 id="moments-title">AICI SE <em>ÎNTÂMPLĂ.</em></h2>
           <p>Grădină, prieteni, muzică. Restul se vede mai bine decât se povestește.</p>
         </div>
-        <div className="moments-viewport" aria-label="Galerie foto; glisează pentru mai multe imagini pe mobil">
+        <div className="moments-viewport" aria-label="Galerie foto cu momente din J’ai Bistrot">
           <div className="moments-track" ref={trackRef}>
             {moments.map((moment) => (
               <figure className="moment-card" key={moment.src}>

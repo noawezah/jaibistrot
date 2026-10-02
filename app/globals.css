@@ -180,11 +180,9 @@ em { font-style: normal; }
   .moments-heading > p:last-child { grid-column: 2; }
 }
 @media (max-width: 899px) {
-  .moments-section { min-height: auto; padding-bottom: 55px; }
-  .moments-viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .moments-viewport::-webkit-scrollbar { display: none; }
-  .moment-card { flex-basis: min(76vw, 520px); width: min(76vw, 520px); scroll-snap-align: start; }
-  .moments-social { align-self: flex-start; margin-top: 35px; }
+  .moments-section { min-height: 100svh; padding-bottom: 20px; }
+  .moment-card { flex-basis: min(76vw, 520px); width: min(76vw, 520px); }
+  .moments-social { align-self: flex-start; margin-top: 18px; }
 }
 @media (max-width: 767px) {
   .site-header { min-height: 72px; gap: 10px; padding: 12px 17px; }
@@ -229,11 +227,11 @@ em { font-style: normal; }
   .menu-categories { gap: 8px; margin: 26px 0 31px; }
   .menu-categories span:not(:last-child)::after { margin-left: 8px; }
   .moments-heading { display: block; padding: 0 23px 30px; }
-  .moments-heading h2 { margin: 20px 0; font-size: clamp(3.6rem, 14vw, 6rem); }
+  .moments-heading h2 { margin: 20px 0; font-size: clamp(2.8rem, 14vw, 6rem); }
   .moments-heading > p:last-child { font-size: .98rem; }
   .moments-track { gap: 14px; padding: 0 23px; }
   .moment-card { flex-basis: 80vw; width: 80vw; }
-  .moment-image { height: 38svh; min-height: 290px; }
+  .moment-image { height: clamp(220px, 36svh, 420px); }
   .moment-card figcaption strong { font-size: 1.05rem; }
   .moments-social { margin-left: 23px; }
   .visit-section { padding: 0 23px; }
@@ -246,6 +244,14 @@ em { font-style: normal; }
   .site-footer { display: block; padding: 35px 23px; }
   .site-footer p { margin: 22px 0; }
 }
+@media (max-width: 767px) and (max-height: 700px) {
+  .moments-section { padding-top: 28px; padding-bottom: 12px; }
+  .moments-heading { padding-bottom: 18px; }
+  .moments-heading h2 { margin: 12px 0; }
+  .moment-image { height: clamp(175px, 32svh, 240px); }
+  .moment-card figcaption { padding: 12px 0; }
+  .moments-social { margin-top: 8px; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -257,5 +263,6 @@ em { font-style: normal; }
   .mobile-time-panel figcaption { position: absolute; left: clamp(23px, 7vw, 120px); right: 23px; bottom: 35px; display: flex; flex-direction: column; gap: 15px; }
   .mobile-time-panel figcaption strong { font: 400 clamp(3rem, 8vw, 8rem)/.95 "Archivo Black", Impact, sans-serif; }
   .mobile-time-panel figcaption strong em { display: block; color: var(--yellow); }
+  .moments-section { min-height: auto; padding-bottom: 55px; }
   .moments-viewport { overflow-x: auto; }
 }
